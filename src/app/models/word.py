@@ -6,7 +6,7 @@ class Word(db.Model):
 
 class WordList(db.Model):
     name = db.StringProperty()
-    owner = db.StringProperty() # FIXME: it should be db.UserProperty()
+    owner = db.UserProperty()
 
 class WordMember(db.Model):
     wordlist = db.ReferenceProperty(WordList, collection_name='words')
