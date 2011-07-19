@@ -4,6 +4,7 @@ from os.path import dirname, join
 from random import shuffle, choice
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
+from google.appengine.api import users
 from app.models.word import Word, WordList, WordMember
 
 wordlists = [[("restrain", u"抑制する"), \
@@ -61,7 +62,7 @@ class Init(webapp.RequestHandler):
     def get(self):
         i = 0
         for wordlist in wordlists:
-            wl = WordList(name="wordlist%02d" % i, owner="me")
+            wl = WordList(name="wordlist%02d" % i, owner=users.get_current_user())
             wl.put()
             for spelling, meaning in wordlist:
                 w = Word(spelling=spelling, meaning=meaning)

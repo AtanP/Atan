@@ -10,4 +10,4 @@ handlers:
   static_dir: static/js
 - url: /.*
   script: app/main.py
-  
+  login: required
