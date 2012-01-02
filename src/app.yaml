@@ -9,7 +9,7 @@ handlers:
 - url: /js
   static_dir: static/js
 - url: /image
-  static_dir; static/image
+  static_dir: static/image
 - url: /.*
   script: app/main.py
   login: required
